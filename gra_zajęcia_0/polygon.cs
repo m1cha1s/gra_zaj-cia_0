@@ -45,5 +45,21 @@ namespace gra_zajęcia_0
                 diagonal.draw(g);
             }
         }
+
+        public List<Option> getDiagonalsAtPoints()
+        {
+            List<Option> options = new List<Option>();
+            foreach(point corner in points)
+            {
+                Option option = new Option();
+                option.corner = corner;
+                for (int j = 0; j < diagonals.Count; j ++)
+                {
+                    if (diagonals[j].isAttachedAt(corner)) option.diagonals.Add(j);
+                }
+                options.Add(option);
+            }
+            return options;
+        }
     }
 }

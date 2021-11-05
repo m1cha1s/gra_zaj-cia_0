@@ -20,5 +20,16 @@ namespace gra_zajęcia_0
         {
             g.DrawLine(Pens.Black, start.toDrawingPoint(), end.toDrawingPoint());
         }
+
+        public bool isAttachedAt(point p)
+        {
+            return start.isPoint(p) || end.isPoint(p);
+        }
+
+        public point getOtherEnd(point p)
+        {
+            if (start.isPoint(p)) return end;
+            if (end.isPoint(p)) return start;
+            return end;
     }
 }

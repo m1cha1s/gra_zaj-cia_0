@@ -27,6 +27,7 @@ namespace gra_zajęcia_0
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            gm.update();
             pictureBox1.Invalidate();
         }
     }

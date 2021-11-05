@@ -9,10 +9,12 @@ namespace gra_zajęcia_0
     {
         polygon p;
         List<flea> fleas = new List<flea>();
+        List<Option> options;
 
         public game(int n, int r, int fleaSize)
         {
-            this.p = new polygon(n, r);
+            p = new polygon(n, r);
+            options = p.getDiagonalsAtPoints();
             for(int i = 0; i < n; i ++)
             {
                 point pos = new point(0, 0);
@@ -27,6 +29,21 @@ namespace gra_zajęcia_0
             foreach(flea f in fleas)
             {
                 f.draw(g);
+            }
+        }
+
+        public void update()
+        {
+            foreach(Option option in options)
+            {
+                foreach(flea f in fleas)
+                {
+                    if (f.pos.isPoint(option.corner))
+                    {
+                        int diagonal = f.decide(option.diagonals);
+                        f.jump(p.diagonals[diagonal], diagonal);
+                    }
+                }
             }
         }
     }

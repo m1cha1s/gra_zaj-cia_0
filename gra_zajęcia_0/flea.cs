@@ -21,6 +21,16 @@ namespace gra_zajęcia_0
             this.fleaNum = fleaNum;
         }
 
+        public int decide(List<int> options)
+        {
+            int smallest = options[0];
+            foreach(int option in options)
+            {
+                if (option < smallest) smallest = option;
+            }
+            return smallest;
+        }
+
         public void jump(point target, int diagonalNum)
         {
             pos.setPoint(target);

@@ -29,5 +29,10 @@ namespace gra_zajęcia_0
             x = target.x;
             y = target.y;
         }
+
+        public bool isPoint(point p)
+        {
+            return x == p.x && y == p.y;
+        }
     }
 }
